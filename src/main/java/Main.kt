@@ -5,7 +5,7 @@ sealed class List<T> {
     class NonEmpty<T>(val head: T, val tail: List<T>) : List<T>()
 }
 
-fun totalCost(items: List<Int>, accumulator: Int): Int =
+fun totalCost(items: List<Int>, accumulator: Int = 0): Int =
     when(items) {
         is List.Empty -> accumulator
         is List.NonEmpty -> totalCost(items.tail, items.head + accumulator)
@@ -20,5 +20,5 @@ fun main(args: Array<String>) {
                         3, List.NonEmpty(
                             4, List.Empty()))))))
 
-    println(totalCost(cart, 0))
+    println(totalCost(cart))
 }
