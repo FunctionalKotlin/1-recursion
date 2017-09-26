@@ -5,7 +5,7 @@ sealed class List<T> {
     class NonEmpty<T>(val head: T, val tail: List<T>) : List<T>()
 }
 
-fun totalCost(items: List<Int>, accumulator: Int = 0): Int =
+tailrec fun totalCost(items: List<Int>, accumulator: Int = 0): Int =
     when(items) {
         is List.Empty -> accumulator
         is List.NonEmpty -> totalCost(items.tail, items.head + accumulator)
