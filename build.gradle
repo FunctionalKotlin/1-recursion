@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.50"
+    }
+}
+
+apply plugin: 'kotlin'
+
+repositories {
+    mavenCentral()
+	jcenter()
+}
+
+dependencies {
+	compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.50"
+	compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.17'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+kotlin {
+	experimental {
+		coroutines "enable"
+	}
+}
